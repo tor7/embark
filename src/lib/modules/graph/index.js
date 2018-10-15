@@ -36,6 +36,7 @@ class GraphGenerator {
           next();
         });
       },
+      /*eslint complexity: ["error", 21]*/
       function (next) {
         for (let contract of self.contracts) {
           if (options.skipUndeployed && !contract.deploy) continue;

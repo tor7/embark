@@ -224,7 +224,7 @@ class ContractsManager {
         callback();
       },
       // TODO: needs refactoring, has gotten too complex
-      /*eslint complexity: ["error", 16]*/
+      /*eslint complexity: ["error", 19]*/
       /*eslint max-depth: ["error", 16]*/
       function determineDependencies(callback) {
         let className, contract;

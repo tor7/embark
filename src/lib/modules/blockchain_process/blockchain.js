@@ -14,7 +14,7 @@ const Ipc = require('../../core/ipc');
 
 const {defaultHost, dockerHostSwap} = require('../../utils/host');
 
-/*eslint complexity: ["error", 36]*/
+/*eslint complexity: ["error", 39]*/
 var Blockchain = function(userConfig, clientClass) {
   this.userConfig = userConfig;
   this.env = userConfig.env || 'development';
