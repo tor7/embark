@@ -1,4 +1,4 @@
-/* global __dirname __filename process require */
+/* global __dirname process require */
 
 // This script doesn't use JS syntax, packages, or APIs *un*supported by any
 // node version >=4.0.0, so unsupported versions from v4.0.0+ will get the
@@ -719,7 +719,7 @@ function realpath(filepath) {
 }
 
 function thisEmbark() {
-  return (new EmbarkBin(__filename)).handle();
+  return (new EmbarkBin(path.join(__dirname, '../../bin/embark'))).handle();
 }
 
 function whenNoShim() {

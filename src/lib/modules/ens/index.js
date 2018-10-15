@@ -224,7 +224,7 @@ class ENS {
 
     // get namehash, import it into file
     self.events.request("version:get:eth-ens-namehash", function(EnsNamehashVersion) {
-      let currentEnsNamehashVersion = require('../../../package.json').dependencies["eth-ens-namehash"];
+      let currentEnsNamehashVersion = require('../../../../package.json').dependencies["eth-ens-namehash"];
       if (EnsNamehashVersion !== currentEnsNamehashVersion) {
         self.events.request("version:getPackageLocation", "eth-ens-namehash", EnsNamehashVersion, function(err, location) {
           self.embark.registerImportFile("eth-ens-namehash", fs.dappPath(location));

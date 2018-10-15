@@ -135,7 +135,7 @@ class TemplateGenerator {
       let templateAndBranch = uri.split('#');
       if (templateAndBranch.length === 1) {
         fallback = true;
-        embarkVersion = semver(require('../../package.json').version);
+        embarkVersion = semver(require('../../../package.json').version);
         templateAndBranch.push(`${embarkVersion.major}.${embarkVersion.minor}`);
       }
       templateAndBranch[0] = `embark-framework/embark-${templateAndBranch[0]}-template`;

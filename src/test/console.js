@@ -3,7 +3,7 @@ let Console = require('../lib/modules/console/');
 let Plugins = require('../lib/core/plugins.js');
 let IPC = require('../lib/core/ipc.js');
 let assert = require('assert');
-let version = require('../package.json').version;
+let version = require('../../package.json').version;
 
 describe('embark.Console', function() {
   let ipc = new IPC({ipcRole: 'none'});

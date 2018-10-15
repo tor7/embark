@@ -15,7 +15,7 @@ let readFile = function(file) {
   return new File({filename: file, type: File.types.dapp_file, path: file});
 };
 
-const currentSolcVersion = require('../package.json').dependencies.solc;
+const currentSolcVersion = require('../../package.json').dependencies.solc;
 const TestEvents = {
   request: (cmd, cb) => {
     cb(currentSolcVersion);

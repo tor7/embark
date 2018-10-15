@@ -15,7 +15,7 @@ describe('TemplateGenerator', function () {
 
       it('returns correct info for named template', function () {
         let result = templateGenerator.getExternalProject("typescript");
-        let embarkVersion = semver(require('../package.json').version);
+        let embarkVersion = semver(require('../../package.json').version);
         let branch = `${embarkVersion.major}.${embarkVersion.minor}`;
         assert.strictEqual(result.url, `https://codeload.github.com/embark-framework/embark-typescript-template/tar.gz/${branch}`);
         assert.strictEqual(result.filePath.replace(/\\/g,'/'), `.embark/templates/embark-framework/embark-typescript-template/${branch}/archive.zip`);

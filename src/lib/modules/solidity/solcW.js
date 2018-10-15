@@ -1,6 +1,6 @@
 let utils = require('../../utils/utils.js');
 let fs = require('../../core/fs.js');
-let currentSolcVersion = require('../../../package.json').dependencies.solc;
+let currentSolcVersion = require('../../../../package.json').dependencies.solc;
 const ProcessLauncher = require('../../core/processes/processLauncher.js');
 const uuid = require('uuid/v1');
 
