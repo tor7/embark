@@ -1,4 +1,4 @@
-![Embark](https://github.com/embark-framework/embark/raw/develop/header.png)
+![Embark](https://user-images.githubusercontent.com/194260/46920454-151bb380-cfb4-11e8-91d5-570775cc7bff.png)
 
 [![npm](https://img.shields.io/npm/dm/embark.svg)](https://npmjs.com/package/embark)
 [![Gitter](https://img.shields.io/gitter/room/embark-framework/Lobby.svg)](https://gitter.im/embark-framework/Lobby)
@@ -44,4 +44,3 @@ $ npm -g install embark
 ```
 
 See [Complete Documentation](https://embark.status.im/docs/).
-
