@@ -3,12 +3,19 @@ os:
   - linux
   - osx
 node_js:
-    - "8"
-    - "10"
+  - "8"
+  - "10"
 addons:
-    code_climate:
-        repo_token: 7454b1a666015e244c384d19f48c34e35d1ae58c3aa428ec542f10bbcb848358
+  code_climate:
+    repo_token: 7454b1a666015e244c384d19f48c34e35d1ae58c3aa428ec542f10bbcb848358
 before_install:
-    - npm i -g npm@latest
+  # update npm
+  - npm i -g npm@latest
+install:
+  # install modules
+  - npm install
+  # build embark
+  - npm run prepack
 script:
-    - npm test
+  # run tests
+  - npm test
