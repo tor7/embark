@@ -132,7 +132,7 @@ class File {
   content (callback) {
     let content;
     if (this.type === File.types.embark_internal) {
-      content = fs.readFileSync(fs.embarkPath(this.path)).toString();
+      content = fs.readFileSync(fs.embarkPath(utils.joinPath('dist', this.path))).toString();
     } else if (this.type === File.types.dapp_file) {
       content = fs.readFileSync(this.path).toString();
     } else if (this.type === File.types.custom) {

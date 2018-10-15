@@ -53,7 +53,7 @@ Plugins.prototype.createPlugin = function(pluginName, pluginConfig) {
 };
 
 Plugins.prototype.loadInternalPlugin = function(pluginName, pluginConfig) {
-  var pluginPath = fs.embarkPath('lib/modules/' + pluginName);
+  var pluginPath = fs.embarkPath('dist/lib/modules/' + pluginName);
   var plugin = require(pluginPath);
 
   var pluginWrapper = new Plugin({
