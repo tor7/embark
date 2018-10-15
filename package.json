@@ -3,12 +3,27 @@
   "version": "3.2.1",
   "description": "Embark is a framework that allows you to easily develop and deploy DApps",
   "scripts": {
-    "lint": "eslint bin/embark lib/",
+    "babel": "babel",
+    "babel:node": "cross-env BABEL_ENV=node babel src --copy-files --extensions \".js,.ts\" --out-dir dist --source-maps",
+    "babel:node:watch": "npm run babel:node -- --verbose --watch",
+    "build": "npm-run-all clean build:*",
+    "build:node": "npm run babel:node",
+    "clean": "rimraf dist embark-*.tgz package",
+    "eslint": "eslint",
+    "lint": "npm-run-all lint:*",
+    "lint:js": "eslint babel.config.js src/bin src/lib",
+    "lint:ts": "tslint -c tslint.json 'src/**/*.ts'",
+    "prepublishOnly": "npm install && npm-run-all build test",
+    "prepack": "npm run build",
+    "tsc": "tsc",
     "test": "npm-run-all lint test:*",
-    "test:embark": "mocha test/ --no-timeouts --exit",
+    "test:embark": "mocha dist/test/ --no-timeouts --exit",
     "test:test_app": "cross-env DAPP=\"test_app\" npm run test_dapp",
     "test:contracts_app": "cross-env DAPP=\"contracts_app\" npm run test_dapp",
-    "test_dapp": "cross-env-shell \"cd test_apps/$DAPP && npm install && npm test\""
+    "test_dapp": "cross-env-shell \"cd test_apps/$DAPP && npm install && npm test\"",
+    "tslint": "tslint",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch"
   },
   "bin": {
     "embark": "./bin/embark"
