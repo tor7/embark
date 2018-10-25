@@ -34,7 +34,7 @@ describe('embark.AccountParser', function () {
 
     it('should return two accounts from the keys in the file', function () {
       const account = AccountParser.getAccount({
-        privateKeyFile: 'test/keyFiles/twoKeys'
+        privateKeyFile: 'dist/test/keyFiles/twoKeys'
       }, web3, testLogger);
 
       assert.deepEqual(account, [

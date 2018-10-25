@@ -17,7 +17,7 @@ if (!process.env.DAPP_PATH) {
 
 // set the anchor for embark's fs.embarkPath()
 if (!process.env.EMBARK_PATH) {
-  process.env.EMBARK_PATH = utils.joinPath(__dirname, '..');
+  process.env.EMBARK_PATH = utils.joinPath(__dirname, '../..');
 }
 
 // set the anchor for embark's fs.pkgPath()
