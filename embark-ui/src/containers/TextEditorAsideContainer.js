@@ -10,6 +10,7 @@ import ContractDetail from '../components/ContractDetail';
 import ContractTransactionsContainer from './ContractTransactionsContainer';
 import ContractOverviewContainer from '../containers/ContractOverviewContainer';
 import ContractDebuggerContainer from '../containers/ContractDebuggerContainer';
+import { TextEditorToolbarTabs } from '../components/TextEditorToolbar';
 
 class TextEditorAsideContainer extends Component {
   componentDidMount() {
@@ -17,42 +18,60 @@ class TextEditorAsideContainer extends Component {
   }
 
   renderContent(contract, index) {
-    switch (this.props.currentAsideTab) {
-      case 'debugger':
-        return (
-          <React.Fragment>
-            <h2>{contract.className} - Details</h2>
-            <ContractDebuggerContainer key={index} contract={contract}/>
-          </React.Fragment>
-        );
-      case 'detail':
-        return (
-          <React.Fragment>
-            <h2>{contract.className} - Details</h2>
-            <ContractDetail key={index} contract={contract}/>
-          </React.Fragment>
-        );
-      case 'transactions':
-        return (
-          <React.Fragment>
-            <h2>{contract.className} - Transactions</h2>
-            <ContractTransactionsContainer key={index} contract={contract}/>
-          </React.Fragment>
-        );
-      case 'overview':
-        return (
-          <React.Fragment>
-            <h2>{contract.className} - Overview</h2>
-            <ContractOverviewContainer key={index} contract={contract}/>
-          </React.Fragment>
-        );
+    switch(this.props.currentAsideTab) {
+      case TextEditorToolbarTabs.Browser:
+        return <Preview />;
+      case TextEditorToolbarTabs.Debugger:
+        return this.props.contracts.map((contract, index) => {
+          return (
+            <Card key={'contract-' + index}>
+              <CardBody>
+                <h2>{contract.className} - Details</h2>
+                <ContractDebuggerContainer key={index} contract={contract} />
+              </CardBody>
+            </Card>
+          );
+        });
+      case TextEditorToolbarTabs.Detail:
+        return this.props.contracts.map((contract, index) => {
+          return (
+            <Card key={'contract-' + index}>
+              <CardBody>
+                <h2>{contract.className} - Details</h2>
+                <ContractDetail key={index} contract={contract} />
+              </CardBody>
+            </Card>
+          );
+        });
+      case TextEditorToolbarTabs.Logger:
+        return this.props.contracts.map((contract, index) => {
+          return (
+            <Card key={'contract-' + index}>
+              <CardBody>
+                <h2>{contract.className} - Transactions</h2>
+                <ContractTransactionsContainer key={index} contract={contract} />)
+              </CardBody>
+            </Card>
+          );
+        });
+      case TextEditorToolbarTabs.Overview:
+        return this.props.contracts.map((contract, index) => {
+          return (
+            <Card key={'contract-' + index}>
+              <CardBody>
+                <h2>{contract.className} - Overview</h2>
+                <ContractOverviewContainer key={index} contract={contract} />
+              </CardBody>
+            </Card>
+          );
+        });
       default:
         return '';
     }
   }
 
   render() {
-    if (this.props.currentAsideTab === 'browser') {
+    if (this.props.currentAsideTab === TextEditorToolbarTabs.Browser) {
       return <Preview/>;
     }
     return this.props.contracts.map((contract, index) => {
